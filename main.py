@@ -20,15 +20,11 @@ while is_on:
         new_machine.report()  # Call report() methode to show up available resources in the machine
         money_machine.report()  # Call report() methode to show up earned money in the machine
     else:
-        drink = menu.find_drink(choice)
-        if new_machine.is_resource_sufficient(drink):
-            if money_machine.make_payment(drink.cost):
-                new_machine.make_coffee(drink)
+        drink = menu.find_drink(choice) # Assign user's choice to a drink variable preliminary checked if it is in a menu
+        if new_machine.is_resource_sufficient(drink):   # Verify the coffee machine has enough resources
+            if money_machine.make_payment(drink.cost):  # Make payment, preliminary checked if there was enough coin inserted
+                new_machine.make_coffee(drink)  # Make a drink
 
 
 
 
-# print(menu.get_items())
-# menu.find_drink("latte")
-
-# espresso = MenuItem(menu.find_drink("espresso"))
